@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela com Tabelas de gerenciamento</title>
+    <script>
+       
+</head>
+<body>
+    <header>
+        
+        function atualizarTabela() {
+            // Obter o valor da opção selecionada
+            var opcaoSelecionada = document.getElementById('opcao').value;
+
+            // Atualizar os valores de Status e Usuário código na tabela
+            var status, usuarioCodigo;
+
+            // Definir valores baseados na opção selecionada
+            switch (opcaoSelecionada) {
+                case 'opcao1':
+                    status = 'Ativo';
+                    usuarioCodigo = '1234';
+                    break;
+                case 'opcao2':
+                    status = 'Inativo';
+                    usuarioCodigo = '5678';
+                    break;
+                case 'opcao3':
+                    status = 'Pendente';
+                    usuarioCodigo = '91011';
+                    break;
+                default:
+                    status = '';
+                    usuarioCodigo = '';
+                    break;
+            }
+
+            // Preencher os campos da tabela com os valores definidos
+            var linhas = document.querySelectorAll('table tbody tr');
+            linhas.forEach(function(linha, index) {
+                // Adiciona ou atualiza os valores nas colunas "Status" e "Usuário código"
+                linha.cells[3].textContent = status;  // Coluna 4: Status
+                linha.cells[4].textContent = usuarioCodigo;  // Coluna 5: Usuário código
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Gerenciamento de Tarefas</h1>
+
+    <!-- Combobox -->
+    <label for="opcao">Escolher opcão:</label>
+    <select id="opcao" name="opcao" onchange="atualizarTabela()">
+        <option value="opcao1">Opção 1</option>
+        <option value="opcao2">Opção 2</option>
+        <option value="opcao3">Opção 3</option>
+    </select>
+
+    <hr>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Setor</th>
+                <th>Prioridade</th>
+                <th>Descrição</th>
+                <th>Status</th>
+                <th>Usuário código</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>ANA LAURA</td>
+                <td>01</td>
+                <td></td> <!-- Coluna de Status -->
+                <td></td> <!-- Coluna de Usuário código -->
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>GEOVANNA</td>
+                <td>02</td>
+                <td></td> <!-- Coluna de Status -->
+                <td></td> <!-- Coluna de Usuário código -->
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>VINÍCIUS</td>
+                <td>03</td>
+                <td></td> <!-- Coluna de Status -->
+                <td></td> <!-- Coluna de Usuário código -->
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
